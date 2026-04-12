@@ -1,5 +1,4 @@
-import MetricCard from './components/MetricCard'
-
+import MetricCard from '@/components/MetricCard'
 const focusBars = [
   { height: 48 },
   { height: 62 },

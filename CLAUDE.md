@@ -14,19 +14,19 @@ This file gives Claude context about the project so it can provide better assist
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
 - **Package Manager:** npm
+- **Testing Library:** Playwright
 
 <!-- Add any other libraries, tools, or services used -->
 
 ## Project Structure
 
 ```
-app/
-  components/   # Shared components
-  about/        # About page
-  settings/     # Settings page
-  page.tsx      # Home page (Overview dashboard)
-  layout.tsx    # Root layout with Nav
-  globals.css   # Global styles
+app/            # Application Pages
+components/     # Shared components  
+hooks/          # Shared hook library
+utils/          # Utility support files
+tests/          # Playwright Test Files
+public/         # Application Assets
 ```
 
 <!-- Add or adjust as the project grows -->
@@ -36,7 +36,9 @@ app/
 <!-- Describe any conventions the project follows, e.g.: -->
 <!-- - Prefer server components unless interactivity is needed -->
 <!-- - File naming: PascalCase for components, kebab-case for routes -->
-<!-- - CSS: Tailwind utility classes only, no custom CSS unless necessary -->
+- CSS: Tailwind utility classes only, no custom CSS unless necessary
+- Variables: Treat all variables as immutable wherever possible
+- Imports: Use Modules Path Aliases when importing components
 
 ## Commands
 
