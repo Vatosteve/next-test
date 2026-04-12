@@ -115,29 +115,20 @@ test.describe("Home — metric cards", () => {
     await page.goto("/");
     const card = page.locator('[data-testid="metric-card"]').first();
     await card.hover();
-    // Wait for the 0.5s ease-out scale transition to complete
-    await page.waitForTimeout(600);
-    // Tailwind v4 uses the CSS `scale` property (not `transform`) for scale utilities
-    const scale = await card.evaluate((el) => getComputedStyle(el).scale);
-    expect(scale).not.toBe("none");
-    expect(scale).not.toBe("1");
+    // toHaveCSS auto-retries until the property matches, handling transition
+    // timing differences across browsers and CI environments.
+    // Tailwind v4 sets the CSS `scale` property directly (not `transform`).
+    await expect(card).toHaveCSS("scale", "1.05");
   });
 
   test("hovering a metric card changes box-shadow", async ({ page }) => {
     await page.goto("/");
     const card = page.locator('[data-testid="metric-card"]').first();
-    // Capture shadow before hover — initial state is rgba(251, 115, 0, 0), not 'none'
-    const shadowBefore = await card.evaluate(
-      (el) => getComputedStyle(el).boxShadow,
-    );
     await card.hover();
-    // Wait for the 0.5s ease-out box-shadow transition to complete
-    await page.waitForTimeout(600);
-    const shadowAfter = await card.evaluate(
-      (el) => getComputedStyle(el).boxShadow,
-    );
-    // Opacity transitions from 0 → 0.12, so the computed string must differ
-    expect(shadowAfter).not.toBe(shadowBefore);
+    // Tailwind box-shadow utilities include CSS-variable fallback layers in the
+    // computed value, so an exact string match won't work. Match on the orange
+    // shadow color at full hover opacity (0.12) appearing anywhere in the value.
+    await expect(card).toHaveCSS("box-shadow", /rgba\(251, 115, 0, 0\.12\)/);
   });
 });
 
