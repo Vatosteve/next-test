@@ -2,6 +2,11 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
+import QueryProvider from '@/components/QueryProvider'
+
+// Force all fetch requests in this layout and its children to bypass the
+// data cache so responses are always fresh.
+export const fetchCache = 'force-no-store'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,7 +26,9 @@ export default function RootLayout({
       <body className={`${inter.className} bg-neutral-100 dark:bg-neutral-950 text-neutral-900 dark:text-white`}>
         <div className="flex flex-col min-h-screen">
           <Nav />
-          <div className="flex-1">{children}</div>
+          <QueryProvider>
+            <div className="flex-1">{children}</div>
+          </QueryProvider>
         </div>
       </body>
     </html>
