@@ -1,11 +1,11 @@
-import { ReactNode } from 'react'
+import { ReactNode } from "react";
 
 interface MetricCardProps {
-  title: string
-  widget?: ReactNode
-  background?: ReactNode
-  children: ReactNode
-  className?: string
+  title: string;
+  widget?: ReactNode;
+  background?: ReactNode;
+  children: ReactNode;
+  className?: string;
 }
 
 /**
@@ -23,18 +23,18 @@ export default function MetricCard({
   widget,
   background,
   children,
-  className = '',
+  className = "",
 }: MetricCardProps) {
   // Rule #2: hover effects as Tailwind utilities (no custom .metric-card CSS class)
   // Rule #3: aspect-[4/3] replaces the inline style={{ aspectRatio: '4/3' }}
   const cardClasses = [
-    'aspect-[4/3] relative bg-neutral-900 rounded-2xl overflow-hidden flex flex-col',
-    'shadow-[0_0_28px_4px_rgba(251,115,0,0)]',
-    'hover:shadow-[0_0_28px_4px_rgba(251,115,0,0.12)]',
-    'hover:scale-105 hover:cursor-pointer',
-    'transition-[box-shadow,transform,scale] duration-500 ease-out',
+    "aspect-[4/3] relative bg-neutral-900 rounded-2xl overflow-hidden flex flex-col",
+    "shadow-[0_0_28px_4px_rgba(251,115,0,0)]",
+    "hover:shadow-[0_0_28px_4px_rgba(251,115,0,0.12)]",
+    "hover:scale-105 hover:cursor-pointer",
+    "transition-[box-shadow,transform,scale] duration-500 ease-out",
     className,
-  ].join(' ')
+  ].join(" ");
 
   return (
     <div className={cardClasses} data-testid="metric-card">
@@ -54,5 +54,5 @@ export default function MetricCard({
         {children}
       </div>
     </div>
-  )
+  );
 }

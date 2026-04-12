@@ -7,5 +7,5 @@ export default function Settings() {
         This is the settings page. Configure your preferences here.
       </p>
     </main>
-  )
+  );
 }

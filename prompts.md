@@ -14,7 +14,7 @@ A log of all prompts requested in this project.
 
 ## Session: Check MCP settings configuration
 
-1. *(Initial check — errors and config review)*
+1. _(Initial check — errors and config review)_
 2. `get_errors`
 3. `get_routes`
 4. `browser_run_code`

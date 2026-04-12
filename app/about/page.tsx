@@ -7,5 +7,5 @@ export default function About() {
         This is the about page. Add information about your project or team here.
       </p>
     </main>
-  )
+  );
 }

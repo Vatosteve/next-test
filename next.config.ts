@@ -1,4 +1,4 @@
-import type { NextConfig } from 'next'
+import type { NextConfig } from "next";
 
 /**
  * Next.js 16 configuration.
@@ -7,6 +7,6 @@ import type { NextConfig } from 'next'
  * No webpack config is present in this project, so no migration is needed.
  * Add any project-specific options here.
  */
-const nextConfig: NextConfig = {}
+const nextConfig: NextConfig = {};
 
-export default nextConfig
+export default nextConfig;
