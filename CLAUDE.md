@@ -1,3 +1,5 @@
+@AGENTS.md
+
 # CLAUDE.md
 
 This file gives Claude context about the project so it can provide better assistance.

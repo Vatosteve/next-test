@@ -1,0 +1,40 @@
+# --- Dependencies ---
+node_modules/
+bower_components/
+.venv/
+env/
+venv/
+pip-selfcheck.json
+
+# --- Build & Output ---
+dist/
+build/
+out/
+bin/
+obj/
+*.bundle.js
+*.min.js
+
+# --- Logs & Temp ---
+*.log
+logs/
+.tmp/
+.cache/
+
+# --- IDE & Environment ---
+.idea/
+.vscode/
+.DS_Store
+.env
+.env.local
+.env.*.local
+.secrets/
+keys/
+
+# --- Version Control ---
+.git/
+
+# --- Documentation/Generated ---
+docs/
+generated/
+
