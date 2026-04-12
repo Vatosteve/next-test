@@ -22,7 +22,7 @@ This file gives Claude context about the project so it can provide better assist
 
 ```
 app/            # Application Pages
-components/     # Shared components  
+components/     # Shared components
 hooks/          # Shared hook library
 utils/          # Utility support files
 tests/          # Playwright Test Files
@@ -36,6 +36,7 @@ public/         # Application Assets
 <!-- Describe any conventions the project follows, e.g.: -->
 <!-- - Prefer server components unless interactivity is needed -->
 <!-- - File naming: PascalCase for components, kebab-case for routes -->
+
 - CSS: Tailwind utility classes only, no custom CSS unless necessary
 - Variables: Treat all variables as immutable wherever possible
 - Imports: Use Modules Path Aliases when importing components
@@ -52,7 +53,9 @@ npm run lint     # Run ESLint
 
 <!-- Anything else Claude should know when working on this project -->
 <!-- e.g. design decisions, things to avoid, preferred patterns -->
+
 You are an expert Tailwind CSS v4 developer. Follow these rules strictly:
+
 1. **Version:** Use Tailwind CSS v4 syntax only. Use CSS-first configuration (`@theme { ... }` in your main CSS file) instead of `tailwind.config.js`.
 2. **Framework:** Use utility classes directly in components. Avoid `@apply` unless absolutely necessary for component library overrides.
 3. **Design System:** Use specific theme values for colors, spacing, and typography (e.g., `text-sm`, `p-4`, `bg-primary`) defined in the CSS theme. Do not use arbitrary values like `h-[500px]` unless authorized.
@@ -61,7 +64,6 @@ You are an expert Tailwind CSS v4 developer. Follow these rules strictly:
 6. **Interaction:** Ensure accessible `:hover`, `:focus-visible`, and `:active` states.
 7. **Refactoring:** If a component is too complex, componentize it, but prefer keeping Tailwind classes in the markup for readability.
 8. **Components:** If asked for a component, assume React/JSX and use `tailwind-merge` (`cn()`) for handling class conflicts.
-
 
 ## 🔍 Documentation & Onboarding
 
