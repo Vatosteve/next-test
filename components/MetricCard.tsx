@@ -25,11 +25,19 @@ export default function MetricCard({
   children,
   className = '',
 }: MetricCardProps) {
+  // Rule #2: hover effects as Tailwind utilities (no custom .metric-card CSS class)
+  // Rule #3: aspect-[4/3] replaces the inline style={{ aspectRatio: '4/3' }}
+  const cardClasses = [
+    'aspect-[4/3] relative bg-neutral-900 rounded-2xl overflow-hidden flex flex-col',
+    'shadow-[0_0_28px_4px_rgba(251,115,0,0)]',
+    'hover:shadow-[0_0_28px_4px_rgba(251,115,0,0.12)]',
+    'hover:scale-105 hover:cursor-pointer',
+    'transition-[box-shadow,transform] duration-500 ease-out',
+    className,
+  ].join(' ')
+
   return (
-    <div
-      className={`metric-card relative bg-neutral-900 rounded-2xl overflow-hidden flex flex-col ${className}`}
-      style={{ aspectRatio: '4/3' }}
-    >
+    <div className={cardClasses}>
       {/* Background layer — sits beneath everything */}
       {background !== undefined && (
         <div className="absolute inset-0 z-0">{background}</div>

@@ -45,13 +45,14 @@ export default function Home() {
 
           {/* Action buttons */}
           <div className="flex items-center gap-2 shrink-0">
-            <button className="flex items-center gap-1.5 text-sm text-neutral-300 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-neutral-800">
+            {/* Rule #6: focus-visible on action buttons */}
+            <button className="flex items-center gap-1.5 text-sm text-neutral-300 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
               Add Widget
             </button>
-            <button className="bg-neutral-700 hover:bg-neutral-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors">
+            <button className="bg-neutral-700 hover:bg-neutral-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950">
               Customize
             </button>
           </div>
@@ -71,12 +72,12 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <button className="w-8 h-8 rounded-full bg-neutral-800 hover:bg-neutral-700 flex items-center justify-center transition-colors">
+            <button className="w-8 h-8 rounded-full bg-neutral-800 hover:bg-neutral-700 flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
               </svg>
             </button>
-            <button className="w-8 h-8 rounded-full bg-neutral-800 hover:bg-neutral-700 flex items-center justify-center transition-colors">
+            <button className="w-8 h-8 rounded-full bg-neutral-800 hover:bg-neutral-700 flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
               </svg>
@@ -98,7 +99,7 @@ export default function Home() {
               </>
             }
             widget={
-              <button className="w-7 h-7 rounded-full bg-neutral-800/60 backdrop-blur-sm flex items-center justify-center hover:bg-neutral-700/60 transition-colors">
+              <button className="w-7 h-7 rounded-full bg-neutral-800/60 backdrop-blur-sm flex items-center justify-center hover:bg-neutral-700/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-1 focus-visible:ring-offset-neutral-900">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 text-neutral-200" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                 </svg>
@@ -139,8 +140,8 @@ export default function Home() {
           >
             {/* Bar chart area */}
             <div className="relative flex-1 flex flex-col">
-              {/* Peak annotation */}
-              <div className="relative flex items-center mb-2" style={{ marginLeft: '24%' }}>
+              {/* Peak annotation — Rule #3: ml-[24%] replaces inline style */}
+              <div className="relative flex items-center mb-2 ml-[24%]">
                 <span className="bg-white text-neutral-950 text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
                   Peak: 11 am
                 </span>
@@ -148,7 +149,8 @@ export default function Home() {
 
               {/* Dashed rule + bars */}
               <div className="relative flex-1 flex items-end gap-1">
-                <div className="absolute left-0 right-0 border-t border-dashed border-white/20" style={{ bottom: '70%' }} />
+                {/* Rule #3: bottom-[70%] replaces inline style */}
+                <div className="absolute left-0 right-0 bottom-[70%] border-t border-dashed border-white/20" />
                 {focusBars.map((bar, i) => (
                   <div key={i} className="flex-1 flex flex-col items-center justify-end">
                     <div
@@ -172,7 +174,7 @@ export default function Home() {
               <span className="w-px h-4 bg-neutral-700" />
               <span className="text-neutral-400 text-sm">3 Tasks for today</span>
             </div>
-            <button className="text-sm text-neutral-300 hover:text-white underline underline-offset-2 transition-colors">
+            <button className="text-sm text-neutral-300 hover:text-white underline underline-offset-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-sm">
               Add an Event
             </button>
           </div>
@@ -188,7 +190,7 @@ export default function Home() {
 
           {/* Track */}
           <div className="relative h-28 rounded-xl bg-neutral-800/40 overflow-hidden">
-            {/* Vertical grid lines */}
+            {/* Vertical grid lines — computed % positions must stay as inline styles (dynamic values) */}
             {Array.from({ length: 13 }).map((_, i) => (
               <div
                 key={i}
@@ -197,11 +199,8 @@ export default function Home() {
               />
             ))}
 
-            {/* Task: Plan Weekly Routine – Low Priority (8 AM slot) */}
-            <div
-              className="absolute flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 transition-colors rounded-full px-3 py-2 cursor-pointer"
-              style={{ top: '18%', left: '1%' }}
-            >
+            {/* Task: Plan Weekly Routine – Low Priority (8 AM slot) — Rule #3: arbitrary Tailwind positions */}
+            <div className="absolute top-[18%] left-[1%] flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 transition-colors rounded-full px-3 py-2 cursor-pointer">
               <div className="w-5 h-5 rounded-full bg-neutral-700 flex items-center justify-center shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
@@ -215,10 +214,7 @@ export default function Home() {
             </div>
 
             {/* Task: Review Project Materials – Important (11 AM-ish slot) */}
-            <div
-              className="absolute flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 transition-colors rounded-full px-3 py-2 cursor-pointer"
-              style={{ top: '55%', left: '30%' }}
-            >
+            <div className="absolute top-[55%] left-[30%] flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 transition-colors rounded-full px-3 py-2 cursor-pointer">
               <div className="w-5 h-5 rounded-full bg-neutral-700 flex items-center justify-center shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
@@ -232,10 +228,7 @@ export default function Home() {
             </div>
 
             {/* Task: Call With Client – High Priority (4 PM slot) */}
-            <div
-              className="absolute flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 transition-colors rounded-full px-3 py-2 cursor-pointer"
-              style={{ top: '18%', left: '65%' }}
-            >
+            <div className="absolute top-[18%] left-[65%] flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 transition-colors rounded-full px-3 py-2 cursor-pointer">
               <div className="w-5 h-5 rounded-full bg-neutral-700 flex items-center justify-center shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />

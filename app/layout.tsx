@@ -15,9 +15,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // Rule #5: 'dark' class on <html> enables .dark selector strategy for all dark: modifiers
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-neutral-950`}>
+    <html lang="en" className="dark">
+      <body className={`${inter.className} bg-neutral-100 dark:bg-neutral-950 text-neutral-900 dark:text-white`}>
         <div className="flex flex-col min-h-screen">
           <Nav />
           <div className="flex-1">{children}</div>

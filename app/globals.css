@@ -1,35 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind v4 — single import replaces @tailwind base/components/utilities */
+@import "tailwindcss";
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/*
+  CSS-first theme config (Rule #1).
+  Replaces tailwind.config.ts — all design tokens live here.
+*/
+@theme {
+  /* Custom background image utilities preserved from the old config */
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-gradient-conic: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-}
-
-.metric-card {
-  box-shadow: 0 0 28px 4px rgba(251, 115, 0, 0);
-  transition: box-shadow 0.5s ease-out, transform 0.3s ease-out;
-}
-
-.metric-card:hover {
-  box-shadow: 0 0 28px 4px rgba(251, 115, 0, 0.12);
-  transform: scale(1.05);
-  cursor: pointer;
-}
+/*
+  Dark mode via .dark class strategy (Rule #5).
+  The `dark` variant in v4 targets [data-theme="dark"] by default;
+  this overrides it to match the .dark class on <html>.
+*/
+@custom-variant dark (&:where(.dark, .dark *));
