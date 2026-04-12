@@ -32,12 +32,12 @@ export default function MetricCard({
     'shadow-[0_0_28px_4px_rgba(251,115,0,0)]',
     'hover:shadow-[0_0_28px_4px_rgba(251,115,0,0.12)]',
     'hover:scale-105 hover:cursor-pointer',
-    'transition-[box-shadow,transform] duration-500 ease-out',
+    'transition-[box-shadow,transform,scale] duration-500 ease-out',
     className,
   ].join(' ')
 
   return (
-    <div className={cardClasses}>
+    <div className={cardClasses} data-testid="metric-card">
       {/* Background layer — sits beneath everything */}
       {background !== undefined && (
         <div className="absolute inset-0 z-0">{background}</div>
