@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
-import QueryProvider from '@/components/QueryProvider'
+import QueryProvider from "@/components/QueryProvider";
 
 // Force all fetch requests in this layout and its children to bypass the
 // data cache so responses are always fresh.
-export const fetchCache = 'force-no-store'
+export const fetchCache = "force-no-store";
 
 const inter = Inter({ subsets: ["latin"] });
 

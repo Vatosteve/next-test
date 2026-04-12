@@ -111,23 +111,21 @@ test.describe("Home — metric cards", () => {
     await expect(page.getByText("Peak: 11 am", { exact: true })).toBeVisible();
   });
 
-  test('hovering a metric card applies a scale transform', async ({ page }) => {
-    await page.goto('/')
-    const card = page.locator('[data-testid="metric-card"]').first()
-    await card.hover()
+  test("hovering a metric card applies a scale transform", async ({ page }) => {
+    await page.goto("/");
+    const card = page.locator('[data-testid="metric-card"]').first();
+    await card.hover();
     // Wait for the 0.5s ease-out scale transition to complete
-    await page.waitForTimeout(600)
+    await page.waitForTimeout(600);
     // Tailwind v4 uses the CSS `scale` property (not `transform`) for scale utilities
-    const scale = await card.evaluate((el) =>
-      getComputedStyle(el).scale
-    )
-    expect(scale).not.toBe('none')
-    expect(scale).not.toBe('1')
+    const scale = await card.evaluate((el) => getComputedStyle(el).scale);
+    expect(scale).not.toBe("none");
+    expect(scale).not.toBe("1");
   });
 
-  test('hovering a metric card changes box-shadow', async ({ page }) => {
-    await page.goto('/')
-    const card = page.locator('[data-testid="metric-card"]').first()
+  test("hovering a metric card changes box-shadow", async ({ page }) => {
+    await page.goto("/");
+    const card = page.locator('[data-testid="metric-card"]').first();
     // Capture shadow before hover — initial state is rgba(251, 115, 0, 0), not 'none'
     const shadowBefore = await card.evaluate(
       (el) => getComputedStyle(el).boxShadow,
