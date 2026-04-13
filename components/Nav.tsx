@@ -87,12 +87,8 @@ export default function Nav() {
           </svg>
         </button>
 
-        {/* User profile chip — Rule #6: tabIndex + focus-visible for keyboard access */}
-        <div
-          role="button"
-          tabIndex={0}
-          className="flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 rounded-full pl-1 pr-3 py-1 cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
-        >
+        {/* User profile chip */}
+        <button className="flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 rounded-full pl-1 pr-3 py-1 cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950">
           <div className="w-7 h-7 rounded-full bg-gradient-to-br from-neutral-400 to-neutral-600 flex items-center justify-center text-xs font-semibold text-white select-none">
             KS
           </div>
@@ -113,7 +109,7 @@ export default function Nav() {
               d="M19 9l-7 7-7-7"
             />
           </svg>
-        </div>
+        </button>
       </div>
     </nav>
   );

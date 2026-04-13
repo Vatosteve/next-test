@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About | My App",
+  description: "Learn more about this project.",
+};
+
 export default function About() {
   return (
     <main className="flex flex-col items-start px-8 py-12 max-w-3xl mx-auto">

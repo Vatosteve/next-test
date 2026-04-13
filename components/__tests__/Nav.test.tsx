@@ -94,15 +94,14 @@ describe("Nav — user controls", () => {
 
   it("renders user icon, bell icon, and profile chip buttons", () => {
     render(<Nav />);
-    // user icon button + bell icon button + profile chip (role="button" div)
+    // user icon button + bell icon button + profile chip button
     const buttons = screen.getAllByRole("button");
     expect(buttons).toHaveLength(3);
   });
 
-  it("user profile chip has role=button and is keyboard-focusable", () => {
+  it("user profile chip is a native button", () => {
     render(<Nav />);
-    // The chip's accessible name includes its text content
     const chip = screen.getByRole("button", { name: /kate schowalter/i });
-    expect(chip).toHaveAttribute("tabindex", "0");
+    expect(chip.tagName).toBe("BUTTON");
   });
 });
