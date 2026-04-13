@@ -13,7 +13,7 @@ This file gives Claude context about the project so it can provide better assist
 - **Framework:** Next.js (App Router)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
-- **Package Manager:** npm
+- **Package Manager:** pnpm
 - **Testing Library:** Playwright
 
 <!-- Add any other libraries, tools, or services used -->
@@ -44,9 +44,9 @@ public/         # Application Assets
 ## Commands
 
 ```bash
-npm run dev      # Start development server
-npm run build    # Production build
-npm run lint     # Run ESLint
+pnpm run dev      # Start development server
+pnpm run build    # Production build
+pnpm run lint     # Run ESLint
 ```
 
 ## Notes for Claude
