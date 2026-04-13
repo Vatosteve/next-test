@@ -121,6 +121,7 @@ test.describe("Home — metric cards", () => {
         "*, *::before, *::after { transition-duration: 0ms !important; }",
     });
     const card = page.locator('[data-testid="metric-card"]').first();
+    await card.focus();
     await card.hover();
     // Tailwind v4 sets the CSS `scale` property directly (not `transform`).
     // Firefox computes `scale: 1.05` as "1.05 1" or "1.05 1.05" (all axes
@@ -140,6 +141,7 @@ test.describe("Home — metric cards", () => {
         "*, *::before, *::after { transition-duration: 0ms !important; }",
     });
     const card = page.locator('[data-testid="metric-card"]').first();
+    await card.focus();
     await card.hover();
     // Tailwind box-shadow utilities include CSS-variable fallback layers in the
     // computed value, so an exact string match won't work. Match on the orange
