@@ -114,25 +114,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # Cache Playwright browser binaries — keyed on the Playwright version
-      # so the cache is invalidated when @playwright/test is upgraded
-      - name: Cache Playwright browsers
-        id: playwright-cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: |
-            playwright-${{ runner.os }}-
-
       - name: Install Playwright browsers
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: pnpm exec playwright install --with-deps ${{ matrix.project }}
-
-      # Install system deps even on a cache hit (OS libraries may be missing on fresh runner)
-      - name: Install Playwright system dependencies
-        if: steps.playwright-cache.outputs.cache-hit == 'true'
-        run: pnpm exec playwright install-deps ${{ matrix.project }}
 
       - name: Run Playwright tests
         run: pnpm exec playwright test --project=${{ matrix.project }}
