@@ -51,7 +51,7 @@ Does it need...?
 | Source     | Pattern                      |
 | ---------- | ---------------------------- |
 | Database   | Server Component fetch       |
-| API        | fetch with caching           |
+| API        | fetch with no caching        |
 | User input | Client state + server action |
 
 ---

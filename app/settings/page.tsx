@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Settings | My App",
+  description: "Configure your preferences.",
+};
+
 export default function Settings() {
   return (
     <main className="flex flex-col items-start px-8 py-12 max-w-3xl mx-auto">
