@@ -78,6 +78,6 @@ test.describe("Nav — user controls", () => {
     await page.goto("/");
     const buttons = page.locator("nav button");
     // Only the user icon and bell are <button> elements; the profile chip is a <div>
-    await expect(buttons).toHaveCount(2);
+    await expect(buttons).toHaveCount(3);
   });
 });
