@@ -27,6 +27,13 @@ export default function RootLayout({
         className={`${inter.className} bg-neutral-100 dark:bg-neutral-950 text-neutral-900 dark:text-white`}
       >
         <div className="flex flex-col min-h-screen">
+          {/* Skip link — first focusable element; bypasses nav for keyboard users (WCAG 2.4.1) */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-neutral-900 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:ring-2 focus:ring-amber-400 focus:outline-none"
+          >
+            Skip to main content
+          </a>
           <Nav />
           <QueryProvider>
             <div className="flex-1">{children}</div>

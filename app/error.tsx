@@ -10,7 +10,11 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <main className="flex flex-col items-center justify-center min-h-[60vh] gap-4 px-8">
+    <main
+      id="main-content"
+      tabIndex={-1}
+      className="flex flex-col items-center justify-center min-h-[60vh] gap-4 px-8"
+    >
       <h2 className="text-2xl font-bold text-neutral-100">
         Something went wrong
       </h2>

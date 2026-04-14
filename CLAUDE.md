@@ -77,6 +77,7 @@ public/         # Application Assets
 - Variables: Treat all variables as immutable wherever possible
 - Imports: Use Modules Path Aliases when importing components
 - Commits: Follow Conventional Commits guidelines for commit messages
+- Accessibility: Make sure all changes follow WCAG accessibility guidlines
 
 ## Style Conventions
 
