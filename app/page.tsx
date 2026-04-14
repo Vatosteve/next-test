@@ -33,7 +33,11 @@ const timeLabels = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-neutral-950 text-white">
-      <main className="max-w-7xl mx-auto px-6 py-7 space-y-5">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="max-w-7xl mx-auto px-6 py-7 space-y-5"
+      >
         {/* ── Header Row ── */}
         <div className="flex items-center gap-6">
           {/* Title */}
@@ -78,6 +82,7 @@ export default function Home() {
             {/* Rule #6: focus-visible on action buttons */}
             <button className="flex items-center gap-1.5 text-sm text-neutral-300 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950">
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-4 h-4"
                 fill="none"
@@ -115,8 +120,12 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <button className="w-8 h-8 rounded-full bg-neutral-800 hover:bg-neutral-700 flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950">
+            <button
+              aria-label="Previous"
+              className="w-8 h-8 rounded-full bg-neutral-800 hover:bg-neutral-700 flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+            >
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-4 h-4 text-neutral-300"
                 fill="none"
@@ -131,8 +140,12 @@ export default function Home() {
                 />
               </svg>
             </button>
-            <button className="w-8 h-8 rounded-full bg-neutral-800 hover:bg-neutral-700 flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950">
+            <button
+              aria-label="Next"
+              className="w-8 h-8 rounded-full bg-neutral-800 hover:bg-neutral-700 flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+            >
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-4 h-4 text-neutral-300"
                 fill="none"
@@ -163,8 +176,12 @@ export default function Home() {
               </>
             }
             widget={
-              <button className="w-7 h-7 rounded-full bg-neutral-800/60 backdrop-blur-sm flex items-center justify-center hover:bg-neutral-700/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-1 focus-visible:ring-offset-neutral-900">
+              <button
+                aria-label="Pause timer"
+                className="w-7 h-7 rounded-full bg-neutral-800/60 backdrop-blur-sm flex items-center justify-center hover:bg-neutral-700/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-1 focus-visible:ring-offset-neutral-900"
+              >
                 <svg
+                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-3.5 h-3.5 text-neutral-200"
                   fill="currentColor"

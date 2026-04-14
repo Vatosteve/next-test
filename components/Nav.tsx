@@ -22,13 +22,20 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex items-center justify-between px-6 py-3 bg-neutral-950 border-b border-neutral-800/60">
+    <nav
+      aria-label="Main"
+      className="flex items-center justify-between px-6 py-3 bg-neutral-950 border-b border-neutral-800/60"
+    >
       {/* Logo + Nav Links */}
       <div className="flex items-center gap-8">
-        {/* Logo */}
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-amber-700 flex items-center justify-center font-bold text-neutral-950 text-base select-none">
+        {/* Logo — links to home so keyboard users can navigate to it */}
+        <Link
+          href="/"
+          aria-label="Home"
+          className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-amber-700 flex items-center justify-center font-bold text-neutral-950 text-base select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+        >
           D
-        </div>
+        </Link>
 
         {/* Nav links */}
         <div className="flex items-center gap-6">
@@ -52,8 +59,12 @@ export default function Nav() {
       {/* Right: controls + user */}
       <div className="flex items-center gap-2">
         {/* User icon */}
-        <button className="w-9 h-9 rounded-full bg-neutral-800 hover:bg-neutral-700 flex items-center justify-center text-neutral-400 hover:text-neutral-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950">
+        <button
+          aria-label="User profile"
+          className="w-9 h-9 rounded-full bg-neutral-800 hover:bg-neutral-700 flex items-center justify-center text-neutral-400 hover:text-neutral-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+        >
           <svg
+            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             className="w-4.5 h-4.5"
             fill="none"
@@ -70,8 +81,12 @@ export default function Nav() {
         </button>
 
         {/* Bell icon */}
-        <button className="w-9 h-9 rounded-full bg-neutral-800 hover:bg-neutral-700 flex items-center justify-center text-neutral-400 hover:text-neutral-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950">
+        <button
+          aria-label="Notifications"
+          className="w-9 h-9 rounded-full bg-neutral-800 hover:bg-neutral-700 flex items-center justify-center text-neutral-400 hover:text-neutral-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+        >
           <svg
+            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             className="w-4.5 h-4.5"
             fill="none"
@@ -96,6 +111,7 @@ export default function Nav() {
             Kate Schowalter
           </span>
           <svg
+            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             className="w-3.5 h-3.5 text-neutral-400"
             fill="none"

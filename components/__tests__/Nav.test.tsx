@@ -20,6 +20,12 @@ describe("Nav — logo", () => {
     render(<Nav />);
     expect(screen.getByText("D")).toBeInTheDocument();
   });
+
+  it("logo is a link to home", () => {
+    render(<Nav />);
+    const logo = screen.getByRole("link", { name: /home/i });
+    expect(logo).toHaveAttribute("href", "/");
+  });
 });
 
 describe("Nav — navigation links", () => {
@@ -103,5 +109,19 @@ describe("Nav — user controls", () => {
     render(<Nav />);
     const chip = screen.getByRole("button", { name: /kate schowalter/i });
     expect(chip.tagName).toBe("BUTTON");
+  });
+
+  it("user icon button has an accessible label", () => {
+    render(<Nav />);
+    expect(
+      screen.getByRole("button", { name: /user profile/i }),
+    ).toBeInTheDocument();
+  });
+
+  it("bell icon button has an accessible label", () => {
+    render(<Nav />);
+    expect(
+      screen.getByRole("button", { name: /notifications/i }),
+    ).toBeInTheDocument();
   });
 });

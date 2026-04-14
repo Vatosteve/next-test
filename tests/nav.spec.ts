@@ -66,6 +66,37 @@ test.describe("Nav — active state", () => {
   }
 });
 
+test.describe("Nav — skip link", () => {
+  test("skip link is the first focusable element on the page", async ({
+    page,
+    browserName,
+  }) => {
+    test.skip(
+      browserName === "webkit",
+      "WebKit does not Tab-focus links by default",
+    );
+    await page.goto("/");
+    await page.keyboard.press("Tab");
+    const focused = await page.evaluate(
+      () => document.activeElement?.textContent,
+    );
+    expect(focused).toMatch(/skip to main content/i);
+  });
+
+  test("skip link points to #main-content", async ({ page }) => {
+    await page.goto("/");
+    const link = page.getByRole("link", { name: /skip to main content/i });
+    await expect(link).toHaveAttribute("href", "#main-content");
+  });
+
+  test("#main-content target exists on each page", async ({ page }) => {
+    for (const path of ["/", "/about", "/settings"]) {
+      await page.goto(path);
+      await expect(page.locator("#main-content")).toBeAttached();
+    }
+  });
+});
+
 test.describe("Nav — user controls", () => {
   test("user profile chip is visible", async ({ page }) => {
     await page.goto("/");
